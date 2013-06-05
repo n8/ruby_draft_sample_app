@@ -1,0 +1,60 @@
+<h4>
+  <%= link_to "Home", "/" %>
+</h4>
+
+<div>
+  <%= @document["content"] %>
+</div>
+
+
+<% if @document["token"].blank? %>
+  <div>
+    <%= link_to "Generate Share Token", share_document_path(id: @document["id"]) %> | <%= link_to "Save New Version", create_savepoint_document_path(id: @document["id"]) %>
+  </div>
+
+<% else %>
+
+  <div>
+    Share token: <%= @document["token"] %>
+  </div>
+
+
+<% end %>
+
+<div style="margin-top: 1em">
+
+  <% if @savepoints.blank? %>
+    No other versions saved.
+  <% else %> 
+
+    <div style="">
+      Versions:
+    </div>
+
+    <% @savepoints.each_with_index do |savepoint, index| %>
+      <div>
+        <%= link_to "Version #{@savepoints.size - index}", show_savepoint_document_path(id: savepoint["id"]) %>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>
+
+
+<div style="margin-top: 1em">
+  <% if @forks.blank? %>
+    No collaborators yet. 
+  <% else %> 
+
+    <div>
+      Collaborators:
+    </div>
+
+    <% @forks.each do |fork| %>
+      <div>
+        <%= link_to fork["user"]["email"], document_path(id: fork["id"]) %>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>

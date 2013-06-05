@@ -1,0 +1,32 @@
+<h1>Document List</h1>
+
+<% if current_user %>
+  <%= form_tag documents_path do %>
+    <%= text_area_tag :content %>
+    <%= submit_tag "Add" %>
+  <% end %>
+
+  <ul id="tasks">
+  <% @documents.each do |document| %>
+    <li>
+      <%= link_to "Show", document_path(id: document["id"]) %> | <%= link_to "Delete", document_path(id: document["id"]), method: :delete %>
+
+      <div>
+        <%= truncate(document["content"]) %>
+      </div>
+    </li>
+  <% end %>
+  </ul>
+
+  <p id="logged_in">
+    Logged in as <strong><%= current_user.name %></strong>.
+    <%= link_to "Sign Out", signout_path %>
+  </p>
+<% else %>
+  <p><strong>Currently not signed in.</strong></p>
+  <p>
+    <%= link_to "Sign in through To Do List", "/auth/draft" %>
+  </p>
+<% end %>
+
+

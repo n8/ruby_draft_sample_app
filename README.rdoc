@@ -1,0 +1,11 @@
+= This is a sample application to fool with data from Draft
+
+Run these commands to try it out.
+
+  bundle
+  rake db:setup
+  OAUTH_ID=... OAUTH_SECRET=... rails s -p 3001
+
+Requires Ruby 1.9.2 or later to run.
+
+This is based on the [TODO example from RailsCasts](http://railscasts.com/episodes/353-oauth-with-doorkeeper).
