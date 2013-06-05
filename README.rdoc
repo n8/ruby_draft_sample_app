@@ -1,4 +1,4 @@
-= This is a sample application to fool with data from Draft
+## Sample application to fool with data from Draft
 
 Run these commands to try it out.
 
