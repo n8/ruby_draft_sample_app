@@ -5,6 +5,7 @@ module OmniAuth
 
       option :client_options, {
         site: "https://draftin.com",
+        # site: "http://127.0.0.1:3000",
         authorize_path: "/oauth/authorize"
       }
 

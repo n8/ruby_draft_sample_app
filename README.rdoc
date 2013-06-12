@@ -9,3 +9,7 @@ Run these commands to try it out.
 Requires Ruby 1.9.2 or later to run.
 
 This is based on the [TODO example from RailsCasts](http://railscasts.com/episodes/353-oauth-with-doorkeeper).
+
+Your OAuth Redirect URI that you would setup in Draft for this app would then be something like this: 
+
+http://127.0.0.1:3001/auth/draft/callback
